@@ -1,0 +1,44 @@
+<?php
+/**
+ * The Template for displaying all single products
+ *
+ * Override of WooCommerce template.
+ *
+ * @package HelloElementorChild
+ * @version 1.6.4
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+get_header( 'shop' ); ?>
+
+	<?php
+		/**
+		 * woocommerce_before_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper - 10
+		 * @hooked woocommerce_breadcrumb - 20
+		 */
+		do_action( 'woocommerce_before_main_content' );
+	?>
+
+		<?php while ( have_posts() ) : ?>
+			<?php the_post(); ?>
+
+			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+
+		<?php endwhile; ?>
+
+	<?php
+		/**
+		 * woocommerce_after_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper_end - 10
+		 */
+		do_action( 'woocommerce_after_main_content' );
+	?>
+
+<?php
+get_footer( 'shop' );

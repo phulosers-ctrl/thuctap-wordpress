@@ -1,0 +1,80 @@
+# ============================================
+# WordPress .gitignore for Code Review
+# Only track custom child theme & custom plugins
+# ============================================
+
+# === WordPress Core ===
+# Ignore everything in root except wp-content
+/*.php
+/license.txt
+/readme.html
+/wp-admin/
+/wp-includes/
+
+# === wp-content: ignore everything, then whitelist ===
+/wp-content/*
+
+# Allow themes directory
+!/wp-content/themes/
+
+# Ignore all themes except our child theme
+/wp-content/themes/*
+!/wp-content/themes/hello-elementor-child/
+
+# Allow plugins directory (if you have custom plugins)
+!/wp-content/plugins/
+
+# Ignore all plugins (installed via WP admin / Composer)
+/wp-content/plugins/*
+# Uncomment below to whitelist a custom plugin:
+# !/wp-content/plugins/my-custom-plugin/
+
+# Allow mu-plugins if any
+!/wp-content/mu-plugins/
+
+# === Uploads / Media ===
+/wp-content/uploads/
+
+# === Cache & Generated ===
+/wp-content/cache/
+/wp-content/advanced-cache.php
+/wp-content/object-cache.php
+/wp-content/wp-cache-config.php
+/wp-content/backup-db/
+/wp-content/backups/
+/wp-content/blogs.dir/
+/wp-content/upgrade/
+
+# === Config & Sensitive ===
+wp-config.php
+.htaccess
+.maintenance
+
+# === Dependencies ===
+/node_modules/
+/vendor/
+
+# === OS & IDE ===
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# === Logs & Debug ===
+*.log
+/wp-content/debug.log
+error_log
+php_errorlog
+
+# === Misc ===
+*.sql
+*.sql.gz
+*.tar.gz
+*.zip
+wp-cli.phar
